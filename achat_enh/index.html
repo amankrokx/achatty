@@ -1,0 +1,190 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <title>Achatty ! Welcome</title>
+    <script>
+        //start
+
+        // JS code here
+        //HTTP to HTTPS transfer
+
+        if (window.location.href.substr(0, 16) !== 'http://127.0.0.1' && window.location.href.substr(0, 4) === 'http' && window.location.href.substr(0, 5) !== 'https') {
+            window.location.href = window.location.href.replace('http', 'https')
+        }
+
+        if (localStorage.getItem('logged') !== 'true') window.location = './login.html'
+
+
+        function status(response) {
+            if (response.status >= 200 && response.status < 300) {
+                return Promise.resolve(response)
+            } else {
+                return Promise.reject(new Error(response.statusText))
+            }
+        }
+        // Check signIn
+        try {
+            let credentials = localStorage.getItem('credentials')
+            if (!credentials) throw 'Empty credentials'
+                // Remove hash 1 before sending
+                /*
+            fetch('/checkSignIn', {
+                    method: 'post',
+                    headers: {
+                        "Content-type": "application/json charset=UTF-8"
+                    },
+                    body: credentials
+                })
+                .then(status)
+                .then(function(data) {
+                    console.log('Request succeeded with JSON response', data)
+                })
+                .catch(function(error) {
+                    throw error
+                })*/
+        } catch (e) {
+            console.error(e)
+            alert('Session Expired !')
+            sessionStorage.clear()
+            localStorage.clear()
+            window.location = './login.html'
+        } finally {
+
+        }
+
+        // Websocket
+
+        var HOST = location.origin.replace(/^http/, 'ws')
+        var ws = new WebSocket(HOST);
+
+        ws.onopen = function() {
+            console.log('ws connected')
+        }
+
+        ws.onmessage = function(ev) {
+
+        }
+
+        ws.onerror = (error) => {
+            console.log(`WebSocket error: ${error}`);
+        }
+
+        ws.onping = () => {
+
+        }
+    </script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="./js/script.js"></script>
+    <link rel="stylesheet" href="./css/material-icons.css" />
+    <link rel="stylesheet" href="./css/style.css" />
+</head>
+
+<body>
+
+
+    <header>
+        <div class='topnav'>
+            <span style="position: relative; top: 10px; left: 5px; font-weight: bold; color: var(--w);">AChatty</span>
+            <span class="material-icons menu">menu</span>
+            <span class="material-icons search">search</span>
+        </div>
+        <div class="searchnav">
+            <span class='material-icons'>search</span>
+            <input type="text" ppaceholder="Search Chats" />
+            <span class='material-icons'>close</span>
+        </div>
+        <div class="sidenav">
+            <span class="material-icons">settings</span>
+            <span class="material-icons">color_lens</span>
+            <span class="material-icons">login</span>
+        </div>
+        <div class='secondnav'>
+            <span class="material-icons">notifications</span>
+            <div class="chats">Chats</div>
+            <div>Stories</div>
+            <div class="calls">Calls</div>
+        </div>
+    </header>
+
+    <div id="chatList">
+        <div class="top">
+            <span>Online</span>
+            <span>Filter: none ∨</span>
+        </div>
+
+        <div class="messages">
+            <div class="message" id="username">
+                <img src="media/user.jpg" />
+                <span class="name">Aman Kumar</span><span class="time">11.33 AM</span>
+                <br />
+                <span class="peek">Hey aman ! how...</span>
+            </div>
+
+            <div class="message" id="username">
+                <img src="media/user.jpg" />
+                <span class="name">Aman Kumar</span><span class="time">11.33 AM</span>
+                <br />
+                <span class="peek">Hey aman ! how...</span>
+            </div>
+            <div class="message" id="username">
+                <img src="media/user.jpg" />
+                <span class="name">Aman Kumar</span><span class="time">11.33 AM</span>
+                <br />
+                <span class="peek">Hey aman ! how...</span>
+            </div>
+            <div class="message" id="username">
+                <img src="media/user.jpg" />
+                <span class="name">Aman Kumar</span><span class="time">11.33 AM</span>
+                <br />
+                <span class="peek">Hey aman ! how...</span>
+            </div>
+            <div class="message" id="username">
+                <img src="media/user.jpg" />
+                <span class="name">Aman Kumar</span><span class="time">11.33 AM</span>
+                <br />
+                <span class="peek">Hey aman ! how...</span>
+            </div>
+            <div class="message" id="username">
+                <img src="media/user.jpg" />
+                <span class="name">Aman Kumar</span><span class="time">11.33 AM</span>
+                <br />
+                <span class="peek">Hey aman ! how...</span>
+            </div>
+            <div class="message" id="username">
+                <img src="media/user.jpg" />
+                <span class="name">Aman Kumar</span><span class="time">11.33 AM</span>
+                <br />
+                <span class="peek">Hey aman ! how...</span>
+            </div>
+            <div class="message" id="username">
+                <img src="media/user.jpg" />
+                <span class="name">Aman Kumar</span><span class="time">11.33 AM</span>
+                <br />
+                <span class="peek">Hey aman ! how...</span>
+            </div>
+
+
+        </div>
+
+        <div class="menu">
+            <div class="small"><span class="material-icons">message</span>
+                <div class="big">
+                    <span class="material-icons">group_add</span>
+                    <span class="material-icons">search</span>
+                    <span class="material-icons">person_add_alt_1</span>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div id="callList">
+
+    </div>
+
+    <div id="chatarea"></div>
+
+</body>
+
+</html>

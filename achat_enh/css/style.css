@@ -1,0 +1,241 @@
+  * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+  }
+  
+  *::-webkit-scrollbar {
+      display: none;
+  }
+  
+   :root {
+      --d: #292c35;
+      --o: #086972;
+      --g: #17B978;
+      --l: #A7FF83;
+      --w: #FFFDF9;
+      --b: #6455a9;
+  }
+  
+  body {
+      -moz-user-select: none; /* Firefox */
+      -ms-user-select: none; /* Internet Explorer */
+      -webkit-user-select: none;
+      background: var(--d);
+      color: var(--w);
+      font-size: 24px;
+  }
+  
+  header div {
+      width: 100vw;
+      background: var(--b);
+  }
+  
+  header div.topnav {
+      position: fixed;
+      height: 44px;
+      top: 0;
+  }
+  
+  header div.secondnav {
+      position: absolute;
+      top: 43px;
+      height: 44px;
+  }
+  
+  header div.secondnav * {
+      transition: opacity 0.18s ease-in-out;
+      opacity: 0.5;
+  }
+  
+  header div.secondnav *.active {
+      opacity: 1;
+      border-bottom: 2px solid var(--w);
+  }
+  
+  header div.secondnav *:hover {
+      opacity: 0.8;
+  }
+  
+  header div.secondnav div {
+      height: 34px;
+      display: inline-block;
+      font-size: 0.85em;
+      width: calc((100vw - 65px)/3);
+      text-align: center;
+      top: -5px;
+      position: relative;
+  }
+  
+  header span {
+      margin: 10px;
+  }
+  
+  header div.topnav span.material-icons {
+      float: right;
+  }
+  
+  header div.sidenav {
+      position: fixed;
+      top: 44px;
+      right: -44px;
+      width: 44px;
+      height: 132px;
+      overflow: hidden;
+      z-index: 4;
+      opacity: 1;
+      transition: right 0.18s ease-in;
+  }
+  
+  header div.searchnav {
+      width: 0;
+      overflow: hidden;
+      position: fixed;
+      top: 0;
+      right: 44px;
+      height: 44px;
+      z-index: 5;
+      transition: width 0.3s ease-in-out, right 0.2s ease-in-out;
+  }
+  
+  header div.searchnav input {
+      outline: none;
+      width: 100vw;
+      height: 44px;
+      opacity: 0.75;
+      font-size: 0.8em;
+      padding: 8px 44px 8px 44px;
+      border: 0;
+      color: var(--w);
+      background: rgba(0, 0, 0, 0);
+  }
+  
+  header div.searchnav span {
+      position: absolute;
+      top: 0;
+      margin: 10px;
+  }
+  
+  header div.searchnav span:last-of-type {
+      right: 0;
+  }
+  
+  #chatList {
+      position: absolute;
+      top: 87px;
+      left: 0;
+      transition: left 0.3s ease-in;
+  }
+  
+  #callList {
+      position: absolute;
+      top: 87px;
+      left: 100vw;
+      transition: left 0.3s ease-in;
+  }
+  
+  #chatList div.top {
+      font-size: 0.6em;
+      width: 100vw;
+      padding: 0 10px 0 10px;
+      background: rgba(0, 0, 0, 0.5);
+      opacity: 0.5;
+  }
+  
+  #chatList div.top span:last-of-type {
+      float: right;
+  }
+  
+  #chatList div.messages {
+      font-size: 0.8em;
+      padding: 0 10px 0 10px;
+      width: 100vw;
+      height: calc(100vh - 61px);
+      overflow-x: hidden;
+      overflow-y: scroll;
+  }
+  
+  #chatList div.messages div.message {
+      height: 60px;
+      padding-bottom: 10px;
+      padding-top: 10px;
+      border-bottom: 0.5px solid var(--b);
+      box-sizing: content-box;
+      transition: background 0.1s ease-in-out;
+  }
+  
+  #chatList div.messages div.message:hover {
+      background: rgba(255, 255, 255, 0.14);
+  }
+  
+  #chatList div.messages div.message img {
+      height: 60px;
+      width: 60px;
+      border-radius: 50%;
+  }
+  
+  #chatList div.messages div.message span {
+      position: relative;
+      top: -35px;
+  }
+  
+  #chatList div.messages div.message span.name {
+      left: 5px;
+  }
+  
+  #chatList div.messages div.message span.peek {
+      left: 70px;
+      font-size: 0.8em;
+      opacity: 0.6;
+  }
+  
+  #chatList div.messages div.message span.time {
+      top: 10px;
+      font-size: 0.7em;
+      float: right;
+      opacity: 0.4;
+  }
+  
+  #chatList div.menu div.big {
+      position: fixed;
+      z-index: 3;
+      bottom: 30px;
+      right: 30px;
+      height: 0;
+      width: 0;
+      overflow: hidden;
+      transition: height 0.3s ease-in-out, width 0.3s ease-in-out;
+  }
+  
+  #chatList div.menu div.small:hover div.big {
+      height: 98px;
+      width: 98px;
+      border-radius: 10px;
+  }
+  
+  #chatList div.menu div.small {
+      position: fixed;
+      z-index: 2;
+      bottom: 30px;
+      right: 30px;
+      height: 44px;
+      width: 44px;
+  }
+  
+  #chatList div.menu div.small span {
+      padding: 10px;
+      background: var(--b);
+      border-radius: 10px;
+      position: absolute;
+      z-index: 4;
+  }
+  
+  #chatList div.menu div.small div.big span:first-of-type {
+      top: 54px;
+  }
+  
+  #chatList div.menu div.small div.big span:last-of-type {
+      left: 54px;
+  }
