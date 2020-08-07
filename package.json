@@ -15,5 +15,14 @@
   "bugs": {
     "url": "https://github.com/amankrokx/achatty/issues"
   },
-  "homepage": "https://github.com/amankrokx/achatty#readme"
+  "homepage": "https://github.com/amankrokx/achatty#readme",
+  "dependencies": {
+    "crypto-js": "^4.0.0",
+    "express": "^4.17.1",
+    "express-static-gzip": "^2.0.7",
+    "mysql": "^2.18.1",
+    "path": "^0.12.7",
+    "sha256": "^0.2.0",
+    "web-push": "^3.4.4"
+  }
 }
