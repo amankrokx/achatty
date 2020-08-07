@@ -42,8 +42,7 @@
 <body>
     <!-- Facebook Analytics for login-->
     <div id="fb-root"></div>
-    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v7.0&appId=284385526120811" nonce="8nJGZRqJ"></script>
-
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v8.0&appId=284385526120811" nonce="uWzdVWti"></script>
 
 
     <div id="sign">
@@ -51,8 +50,10 @@
             <h3>Login here !</h3>
             <input type="text" name="userid" class="userid" placeholder="Email or Username" autofocus />
             <input type="password" name="lassword" class="password" placeholder="Password" />
-            <input type="submit" name="submit" class="submit" style="width: calc(100vw - 80px);" />
-            <div class="fb-login-button" data-size="large" data-button-type="continue_with" data-layout="default" data-auto-logout-link="false" data-use-continue-as="false" data-width=""></div>
+            <input type="submit" name="submit" class="submit" style="width: calc(100vw - 100px);" />
+            <div style="width: calc(100vw - 115px);border: 0; border-radius: 5px;">
+                <div class="fb-login-button" data-size="large" data-button-type="continue_with" data-layout="default" data-auto-logout-link="true" data-use-continue-as="true" data-width="100%"></div>
+            </div>
             <span id="createaccount"><h5>Create a new Account !</h5></span>
             <span onclick="startDemo();" style="float: right;">Start Demo</span>
         </div>
