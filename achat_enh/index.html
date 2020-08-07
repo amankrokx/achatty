@@ -8,10 +8,9 @@
 
         // JS code here
         //HTTP to HTTPS transfer
-
-        if (window.location.href.substr(0, 16) !== 'http://127.0.0.1' && window.location.href.substr(0, 4) === 'http' && window.location.href.substr(0, 5) !== 'https') {
-            window.location.href = window.location.href.replace('http', 'https')
-        }
+        /*if (window.location.href.substr(0, 16) !== 'http://127.0.0.1' && window.location.href.substr(0, 4) === 'http' && window.location.href.substr(0, 5) !== 'https') {
+                window.location.href = window.location.href.replace('http', 'https')
+            }*/
 
         if (localStorage.getItem('logged') !== 'true') window.location = './login.html'
 

@@ -3,7 +3,7 @@ console.log(port);
 const express = require('express');
 const app = express();
 const websocket = require('ws');
-const https = require('https');
+const http = require('http');
 const fs = require('fs');
 const path = require('path');
 const AES = require("crypto-js/aes");
@@ -11,18 +11,24 @@ const core = require("crypto-js/core");
 const utf8 = require("crypto-js/enc-utf8");
 const sha256 = require("sha256");
 const mysql = require('mysql');
+var sslRedirect = require('heroku-ssl-redirect');
 /*const btoa = require('btoa');
 const atob = require('atob');*/
 const webpush = require('web-push');
 const expressStaticGzip = require('express-static-gzip');
 
-const options = {
+/*const options = {
     key: fs.readFileSync('privateKey.key'),
     cert: fs.readFileSync('certificate.crt')
-};
+};*/
 
-const httpServer = https.createServer(options, app);
+const httpServer = http.createServer(app);
 
+app.use(sslRedirect([
+    'other',
+    'development',
+    'production'
+]));
 app.use(express.urlencoded());
 app.use("/", expressStaticGzip(path.join(__dirname, 'achat_enh')));
 
